@@ -14,7 +14,7 @@ class Role extends Model
         'movie_id',
         'actor_id',
     ];
-    protected $with = ['actor'];
+    protected $with = ['actor', 'movie'];
 
     public function actor()
     {

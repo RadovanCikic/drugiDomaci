@@ -16,7 +16,6 @@ class Movie extends Model
         'genre',
         'duration'
     ];
-    protected $with = ['roles'];
 
     public function roles()
     {
