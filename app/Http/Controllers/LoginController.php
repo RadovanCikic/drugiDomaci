@@ -14,7 +14,10 @@ class LoginController extends Controller
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json(["error" => "Login failed"], 400);
         }
-        return $user->createToken($request->email)->plainTextToken;
+        return response()->json([
+            "user" => $user,
+            "token" => $user->createToken($request->email)->plainTextToken
+        ]);
     }
 
     public function logout(Request $request)
@@ -33,6 +36,9 @@ class LoginController extends Controller
             "email" => $request->email,
             "password" => Hash::make($request->password)
         ]);
-        return $user->createToken($request->email)->plainTextToken;
+        return response()->json([
+            "user" => $user,
+            "token" => $user->createToken($request->email)->plainTextToken
+        ]);
     }
 }

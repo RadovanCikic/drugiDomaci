@@ -16,8 +16,8 @@ class ActorFactory extends Factory
         return [
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
-            'birth_year' => $this->faker->firstName,
-            'gender' => $this->faker->numberBetween(1980, 2000),
+            'birth_year' => $this->faker->numberBetween(1980, 2000),
+            'gender' => $this->faker->boolean() ? 'Male' : 'Female',
             'email' => $this->faker->email,
             'instagram' => $this->faker->url,
             'personal_site' => $this->faker->url
